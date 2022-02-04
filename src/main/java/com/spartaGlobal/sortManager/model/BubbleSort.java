@@ -1,4 +1,4 @@
-package com.spartaGlobal.sortManager;
+package com.spartaGlobal.sortManager.model;
 
 public class BubbleSort implements Sorter{
     public int[] sort(int[] array){
