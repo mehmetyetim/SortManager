@@ -1,8 +1,12 @@
 package com.spartaGlobal.sortManager;
 
+import com.spartaGlobal.sortManager.model.ArrayIntGenerate;
+import com.spartaGlobal.sortManager.model.BubbleSort;
+import com.spartaGlobal.sortManager.model.MergeSort;
+
 import java.util.Arrays;
 
-public class Main {
+public class FactoryMain {
     public static void main(String[] args) {
         int[] array = new ArrayIntGenerate().generate(12);
         int[] array2 = new ArrayIntGenerate().generate(8);
