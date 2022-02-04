@@ -2,7 +2,7 @@ package com.spartaGlobal.sortManager;
 
 import java.util.Random;
 
-public class ArrayIntGenerate {
+public class ArrayIntGenerate implements ArrayGenerator {
     public int[] generate(int length){
         int[] array = new int[length];
         Random random = new Random();
