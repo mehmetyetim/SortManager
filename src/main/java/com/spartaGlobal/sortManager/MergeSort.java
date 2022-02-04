@@ -1,6 +1,6 @@
 package com.spartaGlobal.sortManager;
 
-public class MergeSort {
+public class MergeSort implements Sorter{
     public int[] sort (int[] array){
         if(array.length<2)
             return array;
