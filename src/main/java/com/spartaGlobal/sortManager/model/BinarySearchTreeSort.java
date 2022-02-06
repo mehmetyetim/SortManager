@@ -42,9 +42,9 @@ public class BinarySearchTreeSort implements Sorter, Timer{
             return root;
         }
 
-        if(key<root.value)
+        if(key<=root.value)
             root.left = insertRec(root.left, key);
-        else if(key> root.value)
+        else
             root.right = insertRec(root.right, key);
 
         return root;
