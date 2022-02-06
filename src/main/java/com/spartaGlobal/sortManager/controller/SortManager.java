@@ -10,8 +10,12 @@ public class SortManager {
 
     public int[] initiateSorting(String desiredSorterType, int desiredArrayLength){
         Sorter s = getSorter(desiredSorterType);
-        int[] sortedArray = s.sort(getInstance().getArray(desiredArrayLength));
-        return sortedArray;
+        return s.sort(getInstance().getArray(desiredArrayLength));
+    }
+
+    public long initiateRunning(String desiredSorterType, int desiredArrayLength){
+        Sorter s = getSorter(desiredSorterType);
+        return s.runningTime(getInstance().getArray(desiredArrayLength));
     }
 
     public static Sorter getSorter(String sorterType){
