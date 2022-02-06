@@ -1,6 +1,6 @@
 package com.spartaGlobal.sortManager.model;
 
-public class BubbleSort implements Sorter{
+public class BubbleSort implements Sorter, Timer{
     public int[] sort(int[] array){
         if(array.length<2)
             return array;
@@ -14,5 +14,13 @@ public class BubbleSort implements Sorter{
             }
         }
         return array;
+    }
+
+    @Override
+    public long runningTime(int[] array) {
+        long startTime = System.nanoTime();
+        sort(array);
+        long endTime = System.nanoTime();
+        return endTime - startTime;
     }
 }

@@ -1,6 +1,6 @@
 package com.spartaGlobal.sortManager.model;
 
-public class MergeSort implements Sorter{
+public class MergeSort implements Sorter, Timer{
     public int[] sort (int[] array){
         if(array.length<2)
             return array;
@@ -48,4 +48,12 @@ public class MergeSort implements Sorter{
             k++;
         }
     }
+
+    public long runningTime(int[] array){
+        long startTime = System.nanoTime();
+        sort(array);
+        long endTime = System.nanoTime();
+        return endTime - startTime;
+    }
+
 }
