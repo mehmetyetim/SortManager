@@ -1,9 +1,7 @@
 package com.spartaGlobal.sortManager.controller;
 
-import com.spartaGlobal.sortManager.model.BubbleSortFactory;
-import com.spartaGlobal.sortManager.model.MergeSortFactory;
-import com.spartaGlobal.sortManager.model.Sorter;
-import com.spartaGlobal.sortManager.model.SorterFactory;
+import com.spartaGlobal.sortManager.model.*;
+
 import static com.spartaGlobal.sortManager.controller.ArrayGenerateManager.*;
 
 public class SortManager {
@@ -22,6 +20,7 @@ public class SortManager {
         SorterFactory sf = switch (sorterType.toLowerCase()){
             case "bubble" -> new BubbleSortFactory();
             case "merge" -> new MergeSortFactory();
+            case "binary" -> new BinarySearchTreeFactory();
             default -> null;
         };
         return sf.getInstance();
