@@ -16,7 +16,7 @@ public class BinarySearchTreeSort implements Sorter, Timer{
         sort(array);
         long endTime = System.nanoTime();
         long duration = endTime-startTime;
-        logger.info("Running time for " + MergeSort.class.getName() + " is " + duration);
+        logger.info("Running time for " + BinarySearchTreeSort.class.getName() + " is " + duration);
         return duration;
     }
 
