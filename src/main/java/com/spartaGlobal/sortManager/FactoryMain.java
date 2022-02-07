@@ -1,18 +1,27 @@
 package com.spartaGlobal.sortManager;
 
-import com.spartaGlobal.sortManager.model.ArrayIntGenerate;
-import com.spartaGlobal.sortManager.model.BubbleSort;
-import com.spartaGlobal.sortManager.model.MergeSort;
-
-import java.util.Arrays;
+import com.spartaGlobal.sortManager.controller.ArrayGenerateManager;
+import com.spartaGlobal.sortManager.controller.SortManager;
+import com.spartaGlobal.sortManager.view.DisplayManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class FactoryMain {
+    Logger logger = LogManager.getLogger(FactoryMain.class.getName());
     public static void main(String[] args) {
-        int[] array = new ArrayIntGenerate().generate(12);
-        int[] array2 = new ArrayIntGenerate().generate(8);
-        System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.toString(new BubbleSort().sort(array)));
-        System.out.println(Arrays.toString(array2));
-        System.out.println(Arrays.toString(new MergeSort().sort(array2)));
+        DisplayManager dm = new DisplayManager();
+        SortManager sm = new SortManager();
+        dm.applicationTitle();
+        while(true){
+            int desiredArrayLength = dm.getDesiredArrayLength();
+            int[] unsortedArray = ArrayGenerateManager.getInstance().getArray(desiredArrayLength);
+            dm.displayUnsortedArray(unsortedArray);
+            String desiredSorter = dm.getDesiredSorter();
+            int[] sortedArray = sm.initiateSorting(desiredSorter, desiredArrayLength);
+            System.out.println(sm.initiateRunning(desiredSorter, desiredArrayLength));
+            dm.displaySortedArray(sortedArray);
+            dm.askToExit();
+        }
+
     }
 }
