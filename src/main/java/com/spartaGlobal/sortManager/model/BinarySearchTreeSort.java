@@ -1,17 +1,23 @@
 package com.spartaGlobal.sortManager.model;
 
+import org.apache.logging.log4j.LogManager;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import org.apache.logging.log4j.Logger;
 
 public class BinarySearchTreeSort implements Sorter, Timer{
+
+    private static Logger logger = LogManager.getLogger(BinarySearchTreeSort.class.getName());
 
     @Override
     public long runningTime(int[] array) {
         long startTime = System.nanoTime();
         sort(array);
         long endTime = System.nanoTime();
-        return endTime - startTime;
+        long duration = endTime-startTime;
+        logger.info("Running time for " + MergeSort.class.getName() + " is " + duration);
+        return duration;
     }
 
     class Node{

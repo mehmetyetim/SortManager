@@ -1,6 +1,10 @@
 package com.spartaGlobal.sortManager.model;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class MergeSort implements Sorter, Timer{
+    private static Logger logger = LogManager.getLogger(MergeSort.class.getName());
     public int[] sort (int[] array){
         if(array.length<2)
             return array;
@@ -53,7 +57,9 @@ public class MergeSort implements Sorter, Timer{
         long startTime = System.nanoTime();
         sort(array);
         long endTime = System.nanoTime();
-        return endTime - startTime;
+        long duration = endTime-startTime;
+        logger.info("Running time for " + MergeSort.class.getName() + " is " + duration);
+        return duration;
     }
 
 }
